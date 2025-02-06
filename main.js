@@ -11,3 +11,23 @@ function toggleDetail(e){
     const detail = $(item).children(".about-exp-item-detail")
     $(detail).slideToggle()
 }
+
+function onFormSubmit(e){
+    // prevent loading
+    e.preventDefault()
+    const email = $("#inp_email")
+    const subject = $("#inp_subject")
+    const message = $("#inp_message")
+
+    // validation in here is neccessary for prevent inspect element from client instead of html
+    if(!$(email).val()) {
+        alert("Email is required")
+    } else if (!$(subject).val()) {
+        alert("Subject is required")
+    } else {
+        alert("Form Submitted")
+        $(email).val('')
+        $(subject).val('')
+        $(message).val('')
+    }
+}
